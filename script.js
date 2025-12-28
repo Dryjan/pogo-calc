@@ -1,5 +1,16 @@
 import { Types } from './types.js';
 
+function lol(n, arr = [], j = 0) {
+  if(!n) {
+    console.log(arr);
+  } else {
+    for(let i = j; i < 18 ; i++) {
+      let arr2 = arr.concat([Types[i]]);
+      lol(n-1, arr2, i+1);
+    }
+ }
+}
+
 const table = document.getElementById('main');
 
 for(let i = 0; i < 18; i++) {
@@ -12,14 +23,4 @@ for(let i = 0; i < 18; i++) {
   table.appendChild(row);
 }
 
-for(let i=0; i<18; i++) {
-  for(let j=i; j<18; j++) {
-    if(Types[15].Eff[i] * Types[15].Eff[j] > 1) {
-      if(i === j) {
-        console.log(Types[i].Name);
-      } else {
-        console.log(Types[i].Name + ' ' + Types[j].Name);
-      }
-    }
-  }
-}
+lol(3);
